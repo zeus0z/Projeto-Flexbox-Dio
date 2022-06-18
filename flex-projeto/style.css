@@ -1,3 +1,7 @@
+:root {
+    --blue: #122a57;
+}
+
 *{
     margin:0;
     padding:0;
@@ -8,7 +12,7 @@
 
 
 .text-blue {
-    color: #122a57;
+    color: var(--blue);
 }
 
 .text-white {
@@ -16,14 +20,43 @@
 }
 
 .bg-blue {
-    background-color: #122a57;
+    background-color: var(--blue);
 }
 
 .bg-white {
     background-color: white;
 }
 
-.button {
+
+@keyframes blueButtonHover {
+    from {
+        border: none;
+        background-color: var(--blue);
+        color: white;
+    }
+    to {
+        border: 3px solid var(--blue);
+        background-color: black;
+        color: white;
+    }
+}
+
+@keyframes whiteButtonHover {
+    from {
+        border: none;
+        background-color: white;
+        color: var(--blue);
+    }
+    to {
+        border: 3px solid white;
+        background-color: black;
+        color: white;
+
+    }
+}
+
+
+.blueButton {
     padding: 5px 20px;
     text-decoration: none;
     border-radius: 50px;
@@ -32,6 +65,35 @@
     line-height: 50px;
     text-align: center;
     font-size: 20px;
+    background-color: var(--blue);
+    color: white;
+}
+
+.blueButton:hover {
+    animation: blueButtonHover;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+
+    
+}
+
+.whiteButton {
+    padding: 5px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    margin:10px;
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    background-color: white;
+    color: var(--blue);
+}
+
+.whiteButton:hover {
+    animation: whiteButtonHover;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
 }
 
 
@@ -78,6 +140,8 @@ header a{
 
 
 
+
+
 /*------- First Section --------*/
 
 #section1 {
@@ -114,7 +178,7 @@ header a{
 }
 
 #section2 h2 {
-    border-left: 5px solid #122a57;
+    border-left: 5px solid var(--blue);
     padding:5px;
 }
 
@@ -127,8 +191,31 @@ header a{
 
 /*------- Services --------*/
 
+#services_title {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 30px;
+}
+
 #services {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    min-height: 420px;
+}
+
+.services_items{
+    display:flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 10px;
+
+}
+
+#services p {
+    font-size: 20px;
+    padding:20px;
 }
 
 
@@ -136,9 +223,55 @@ header a{
 
 /*------- Plans--------*/
 
+#plans {
+    display: flex;
+    justify-content: space-around;
+    height: 500px;
+    align-items:flex-end;
+    
+}
 
+#plans_title {
+    text-align: center;
+    padding: 20px;
+}
 
+#plans h3{
+    padding: 10px 60px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--blue);
+}
+
+#plans div {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 20px 20px;
+    justify-content: flex-end;
+    border: 3px solid var(--blue);
+    margin: 20px 0;
+    
+}
+
+#plans ul {
+    list-style-position: inside;
+    list-style-type: square;
+    
+}
+
+#plans li {
+    color: var(--blue);
+    padding: 10px;
+}
 
 
 
 /*------- Footer--------*/
+
+#footer {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding:20px;
+    height: 70px;
+}
